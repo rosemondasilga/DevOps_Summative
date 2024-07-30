@@ -1,10 +1,20 @@
-FROM node:lts-alpine
-ENV NODE_ENV=production
+# Use the official Node.js image
+FROM node:14
+
+# Create and change to the app directory
 WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
-RUN npm install --production --silent && mv node_modules ../
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install --production
+
+# Copy the rest of the application
 COPY . .
-EXPOSE 3000
-RUN chown -R node /usr/src/app
-USER node
-CMD ["node", "index.js"]
+
+# Expose the port the app runs on
+EXPOSE 5000
+
+# Run the app
+CMD ["node", "server.js"]
