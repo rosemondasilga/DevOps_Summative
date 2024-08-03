@@ -19,10 +19,10 @@ jobs:
           node-version: '21'
       
       - name: Install dependencies
-        working-directory: blog_api
+        working-directory: blog-api
         run: npm install
       - name: Run ESLint
-        working-directory: blog_api
+        working-directory: blog-api
         run: npx eslint . 
 
   test:
@@ -38,10 +38,10 @@ jobs:
           node-version: '21'
 
       - name: Install dependencies
-        working-directory: blog_api
+        working-directory: blog-api
         run: npm install
       - name: Run Jest tests
-        working-directory: blog_api
+        working-directory: blog-api
         run: npm test
 
    
@@ -57,7 +57,7 @@ jobs:
           node-version: '18.18.0'
 
       - name: Install dependencies
-        working-directory: blog_api
+        working-directory: blog-api
         run: npm install
         
       # - uses: actions/checkout@v2
